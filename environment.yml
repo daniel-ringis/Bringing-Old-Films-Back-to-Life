@@ -75,7 +75,6 @@ dependencies:
     - einops==0.3.0
     - filelock==3.3.1
     - flow-vis==0.1
-    - flow-vis-torch==0.1
     - future==0.18.2
     - gdown==4.2.0
     - google-auth==1.32.0
