@@ -28,7 +28,7 @@ def Get_RAFT():
     opts.alternate_corr = False
 
     model = torch.nn.DataParallel(RAFT(opts))
-    model.load_state_dict(torch.load(opts.model))
+    model.load_state_dict(torch.load(opts.model, map_location=torch.device('cpu')))
 
     model = model.module
     model.eval()

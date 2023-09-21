@@ -40,7 +40,7 @@ def Load_model(opts,config_dict):
     net = importlib.import_module('VP_code.models.' + opts.model_name)
     netG = net.Video_Backbone()
     model_path = os.path.join('OUTPUT',opts.name,'models','net_G_{}.pth'.format(str(opts.which_iter).zfill(5)))
-    checkpoint = torch.load(model_path)
+    checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
     netG.load_state_dict(checkpoint['netG'])
     netG.cuda()
     print("Finish loading model ...")

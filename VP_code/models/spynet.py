@@ -70,7 +70,7 @@ class SpyNet(nn.Module):
         
         if load_path:
             state_dict = OrderedDict()
-            for k, v in torch.load(load_path).items():
+            for k, v in torch.load(load_path, map_location=torch.device('cpu')).items():
                 k = k.replace('moduleBasic', 'basic_module')
                 state_dict[k] = v
             self.load_state_dict(state_dict)
